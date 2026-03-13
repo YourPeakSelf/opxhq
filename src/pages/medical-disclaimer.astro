@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const lastUpdated = 'March 13, 2026';
+---
+
+<BaseLayout
+  title="Medical Disclaimer"
+  description="OPX Medical Disclaimer — all content is for informational purposes only and does not constitute medical advice."
+>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+    <!-- Header -->
+    <div class="mb-10">
+      <div class="inline-flex items-center gap-2 bg-yellow-900/20 border border-yellow-600/30 rounded-full px-4 py-1.5 text-yellow-400 text-xs font-semibold uppercase tracking-wider mb-6">
+        ⚕️ Medical Disclaimer
+      </div>
+      <h1 class="text-4xl font-extrabold text-white mb-3">Medical Disclaimer</h1>
+      <p class="text-brand-muted">Last updated: {lastUpdated}</p>
+    </div>
+
+    <!-- Main Disclaimer Box -->
+    <div class="bg-yellow-900/20 border border-yellow-600/30 rounded-xl p-6 mb-10">
+      <p class="text-yellow-200 text-lg leading-relaxed font-medium">
+        The content published on OPX (opxhq.com) is for <strong class="text-yellow-300">informational and educational purposes only</strong>.
+        It does not constitute medical advice, diagnosis, or treatment. Always consult a qualified, licensed healthcare professional
+        before starting any supplement, peptide, training protocol, dietary change, or other health-related practice.
+      </p>
+    </div>
+
+    <div class="prose prose-invert max-w-none space-y-8 text-brand-muted leading-relaxed">
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">1. No Doctor-Patient Relationship</h2>
+        <p>
+          Nothing on this website — including articles, guides, protocols, newsletters, social media posts, or any other content — creates a doctor-patient relationship between OPX and any reader. OPX is a content publisher, not a medical provider. Reading our content does not constitute receiving medical advice from a healthcare professional.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">2. Not a Substitute for Professional Medical Advice</h2>
+        <p>
+          The information on this site is not a substitute for professional medical advice, diagnosis, or treatment. If you have questions about a medical condition, symptoms, or treatment options, consult your physician, pharmacist, or other qualified healthcare provider. Do not disregard or delay seeking professional medical advice because of something you have read on this website.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">3. Peptides, Supplements, and Research Compounds</h2>
+        <p>
+          OPX publishes educational content about peptides, research compounds, and supplements. This content reflects available scientific literature and community-reported experiences. It is important to understand:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 mt-3">
+          <li>Many peptides discussed on this site are not approved by the FDA or equivalent regulatory bodies for human use</li>
+          <li>Research compounds discussed may be legal to purchase for research purposes but not approved for human consumption</li>
+          <li>Preclinical (animal) research does not reliably predict outcomes in humans</li>
+          <li>Individual responses to any compound vary significantly based on genetics, health status, medications, and other factors</li>
+          <li>The long-term safety profiles of many compounds discussed are not fully established in humans</li>
+          <li>OPX does not recommend, prescribe, or advise the use of any specific peptide, supplement, or compound for any individual</li>
+        </ul>
+        <p class="mt-4">
+          Anyone considering the use of peptides or research compounds should consult with a licensed physician knowledgeable in this area before doing so.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">4. Individual Results Vary</h2>
+        <p>
+          Health, fitness, and wellness outcomes discussed on this site are not guaranteed and will vary between individuals. Factors including age, sex, genetics, existing health conditions, medications, diet, lifestyle, and adherence to protocols all affect outcomes. Do not assume that results reported by others — or described in research — will apply to you.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">5. Emergency Situations</h2>
+        <p>
+          <strong class="text-white">If you are experiencing a medical emergency, call 911 (or your local emergency number) immediately.</strong> Do not rely on this website or any online resource in an emergency situation. OPX content is not designed or intended for use in emergency medical situations.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">6. Accuracy and Currency of Information</h2>
+        <p>
+          OPX makes reasonable efforts to ensure the accuracy of the information published on this site, including citing peer-reviewed research where available. However:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 mt-3">
+          <li>Medical and scientific knowledge evolves rapidly — content may become outdated after publication</li>
+          <li>We cannot guarantee that all information is complete, accurate, or current at the time you read it</li>
+          <li>Where evidence is limited, mixed, or preliminary, we endeavor to state this clearly — but the absence of a caveat does not imply certainty</li>
+          <li>Scientific studies cited may have limitations including small sample sizes, short duration, or conflicts of interest</li>
+        </ul>
+        <p class="mt-4">
+          Always verify information with a healthcare professional and consult primary sources where important health decisions are concerned.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">7. Drug Interactions and Contraindications</h2>
+        <p>
+          Content on this site does not account for your individual medication profile, allergies, or health history. Supplements, peptides, and dietary changes can interact with prescription medications and may be contraindicated in certain conditions. Always disclose all supplements and compounds you are taking to your healthcare provider.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">8. Off-Label and Experimental Use</h2>
+        <p>
+          Some content on OPX discusses compounds or protocols that represent off-label, experimental, or non-approved uses. Such content is presented strictly for educational and informational purposes. OPX does not encourage or endorse the use of any substance outside of its approved indications without appropriate medical supervision.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">9. Limitation of Liability</h2>
+        <p>
+          To the fullest extent permitted by applicable law, OPX, its owners, editors, contributors, and affiliates shall not be liable for any direct, indirect, incidental, consequential, special, or punitive damages arising from or related to your use of, or reliance upon, any content on this website. This includes, without limitation, any health outcomes, injuries, adverse reactions, or financial losses resulting from actions taken based on content published on this site.
+        </p>
+        <p class="mt-3">
+          Your use of this website constitutes your acknowledgment of and agreement to this limitation of liability.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mb-3">10. Contact</h2>
+        <p>
+          If you have questions about this disclaimer or the nature of any content on this site, contact us at <a href="mailto:hello@opxhq.com" class="text-brand-accent hover:underline">hello@opxhq.com</a>.
+        </p>
+      </section>
+
+    </div>
+
+    <!-- Footer Links -->
+    <div class="mt-12 pt-8 border-t border-brand-border flex flex-wrap gap-4 text-sm">
+      <a href="/privacy-policy" class="text-brand-accent hover:underline">Privacy Policy</a>
+      <a href="/terms-of-service" class="text-brand-accent hover:underline">Terms of Service</a>
+    </div>
+
+  </div>
+</BaseLayout>
