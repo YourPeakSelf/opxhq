@@ -29,20 +29,21 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy to Netlify (Production)
+      - name: Deploy to Netlify
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-        uses: netlify/actions/cli@master
-        with:
-          args: deploy --dir=dist --prod
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-
-      - name: Deploy Preview (PR)
-        if: github.event_name == 'pull_request'
-        uses: netlify/actions/cli@master
-        with:
-          args: deploy --dir=dist
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          apt-get install -y zip 2>/dev/null || true
+          cd dist && zip -r /tmp/deploy.zip . && cd ..
+          RESPONSE=$(curl -s -X POST \
+            -H "Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}" \
+            -H "Content-Type: application/zip" \
+            --data-binary @/tmp/deploy.zip \
+            "https://api.netlify.com/api/v1/sites/${{ secrets.NETLIFY_SITE_ID }}/deploys")
+          echo "Deploy response state: $(echo $RESPONSE | grep -o '"state":"[^"]*"')"
+          STATE=$(echo $RESPONSE | grep -o '"state":"[^"]*"' | head -1 | cut -d'"' -f4)
+          if [ "$STATE" = "ready" ] || [ "$STATE" = "uploaded" ]; then
+            echo "✅ Deploy successful"
+          else
+            echo "❌ Deploy may have failed. Response: $RESPONSE"
+            exit 1
+          fi
