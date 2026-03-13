@@ -1,0 +1,67 @@
+---
+export interface Props {
+  variant?: 'hero' | 'inline' | 'sidebar';
+  heading?: string;
+  subheading?: string;
+}
+
+const {
+  variant = 'inline',
+  heading = 'Get the OPX Weekly',
+  subheading = 'Evidence-based insights on fitness, nutrition, peptides, and optimization — delivered every week. No spam.',
+} = Astro.props;
+
+const isHero = variant === 'hero';
+const isSidebar = variant === 'sidebar';
+---
+
+<div class={`
+  ${isHero ? 'text-center max-w-2xl mx-auto' : ''}
+  ${isSidebar ? 'card p-6' : ''}
+  ${!isHero && !isSidebar ? 'bg-brand-card border border-brand-border rounded-xl p-8 md:p-12' : ''}
+`}>
+  <div class={isHero ? 'mb-6' : 'mb-5'}>
+    <h2 class={`font-bold text-white ${isHero ? 'text-3xl md:text-4xl mb-3' : isSidebar ? 'text-lg mb-2' : 'text-2xl md:text-3xl mb-3'}`}>
+      {heading}
+    </h2>
+    <p class={`text-brand-muted leading-relaxed ${isHero ? 'text-lg' : 'text-sm'}`}>
+      {subheading}
+    </p>
+  </div>
+
+  <!-- Beehiiv Form — update action URL once Beehiiv publication is set up -->
+  <form
+    class={`flex gap-3 ${isHero || !isSidebar ? 'flex-col sm:flex-row' : 'flex-col'}`}
+    id="newsletter-form"
+  >
+    <input
+      type="email"
+      name="email"
+      placeholder="Enter your email"
+      required
+      class={`input flex-grow ${isSidebar ? 'text-sm' : ''}`}
+    />
+    <button
+      type="submit"
+      class={`btn-primary whitespace-nowrap ${isSidebar ? 'text-sm px-4 py-2.5' : ''}`}
+    >
+      Subscribe Free
+    </button>
+  </form>
+
+  <p class={`text-brand-muted mt-3 ${isSidebar ? 'text-xs' : 'text-xs'}`}>
+    Join 1,000+ readers. Unsubscribe anytime.
+  </p>
+</div>
+
+<script>
+  // Replace with Beehiiv embed once API key is configured
+  const form = document.getElementById('newsletter-form');
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = (form as HTMLFormElement).querySelector<HTMLInputElement>('[name="email"]')?.value;
+    // TODO: Wire to Beehiiv API
+    alert(`Thanks! We'll add ${email} to the list shortly. (Beehiiv integration coming soon)`);
+    (form as HTMLFormElement).reset();
+  });
+</script>

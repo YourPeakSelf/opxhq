@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+
+const articles = [
+  {
+    title: 'Protein: How Much Do You Actually Need?',
+    description: 'Cutting through the bro-science on protein intake. What the research says about optimal amounts for muscle gain and fat loss.',
+    pubDate: new Date('2026-03-09'),
+    slug: 'how-much-protein-do-you-need',
+    category: 'diet-nutrition',
+    readTime: '8 min read',
+  },
+];
+---
+
+<BaseLayout
+  title="Diet & Nutrition"
+  description="Evidence-based nutrition guides for body composition, performance, and long-term health."
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-4">
+      <a href="/blog" class="text-brand-muted text-sm hover:text-brand-accent transition-colors">← All Articles</a>
+    </div>
+    <div class="flex items-center gap-3 mb-4">
+      <span class="text-4xl">🥗</span>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-green-400">Diet & Nutrition</h1>
+    </div>
+    <p class="text-brand-muted text-lg mb-10">Fuel that actually performs — no fad diets, no dogma, just evidence.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {articles.map(article => <ArticleCard {...article} />)}
+    </div>
+  </div>
+</BaseLayout>

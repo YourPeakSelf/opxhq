@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+
+const articles = [
+  {
+    title: 'BPC-157: The Complete Guide to This Healing Peptide',
+    description: 'Everything you need to know about BPC-157 — mechanism of action, dosing protocols, injury recovery applications, and what the research actually says.',
+    pubDate: new Date('2026-03-13'),
+    slug: 'bpc-157-complete-guide',
+    category: 'peptides-supplements',
+    readTime: '12 min read',
+  },
+  {
+    title: 'Creatine: The Most Researched Supplement Ever',
+    description: 'Why creatine is the one supplement almost everyone should take — and the correct way to dose it.',
+    pubDate: new Date('2026-03-10'),
+    slug: 'creatine-complete-guide',
+    category: 'peptides-supplements',
+    readTime: '6 min read',
+  },
+];
+---
+
+<BaseLayout
+  title="Peptides & Supplements"
+  description="Honest, research-backed guides on peptides, supplements, and what actually works."
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-4">
+      <a href="/blog" class="text-brand-muted text-sm hover:text-brand-accent transition-colors">← All Articles</a>
+    </div>
+    <div class="flex items-center gap-3 mb-4">
+      <span class="text-4xl">🧬</span>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-purple-400">Peptides & Supplements</h1>
+    </div>
+    <p class="text-brand-muted text-lg mb-10">What works, what's safe, and what's overhyped — backed by evidence.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {articles.map(article => <ArticleCard {...article} />)}
+    </div>
+  </div>
+</BaseLayout>

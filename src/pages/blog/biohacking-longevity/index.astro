@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+
+const articles = [
+  {
+    title: 'Cold Plunge vs. Sauna: What the Science Says',
+    description: 'Both have exploded in popularity. Here\'s what the actual research shows about benefits, timing, and how to stack them.',
+    pubDate: new Date('2026-03-08'),
+    slug: 'cold-plunge-vs-sauna',
+    category: 'biohacking-longevity',
+    readTime: '9 min read',
+  },
+];
+---
+
+<BaseLayout
+  title="Biohacking & Longevity"
+  description="Cutting-edge protocols, longevity research, and optimization strategies for a longer, better life."
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-4">
+      <a href="/blog" class="text-brand-muted text-sm hover:text-brand-accent transition-colors">← All Articles</a>
+    </div>
+    <div class="flex items-center gap-3 mb-4">
+      <span class="text-4xl">⚡</span>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-cyan-400">Biohacking & Longevity</h1>
+    </div>
+    <p class="text-brand-muted text-lg mb-10">Live longer, perform better — the frontier of human optimization.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {articles.map(article => <ArticleCard {...article} />)}
+    </div>
+  </div>
+</BaseLayout>

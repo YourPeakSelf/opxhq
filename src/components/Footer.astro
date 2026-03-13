@@ -1,0 +1,68 @@
+---
+const categories = [
+  { label: 'Workouts & Training', href: '/blog/workouts-training' },
+  { label: 'Peptides & Supplements', href: '/blog/peptides-supplements' },
+  { label: 'Skincare & Looksmaxing', href: '/blog/skincare-looksmaxing' },
+  { label: 'Diet & Nutrition', href: '/blog/diet-nutrition' },
+  { label: 'Biohacking & Longevity', href: '/blog/biohacking-longevity' },
+  { label: 'Mental Health & Mindset', href: '/blog/mental-health-mindset' },
+];
+---
+
+<footer class="bg-brand-surface border-t border-brand-border mt-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      <!-- Brand -->
+      <div>
+        <a href="/" class="flex items-center gap-2 mb-4">
+          <div class="w-8 h-8 bg-brand-accent rounded-md flex items-center justify-center">
+            <span class="text-brand-bg font-black text-sm">OPX</span>
+          </div>
+          <span class="font-bold text-white text-lg">OPX</span>
+        </a>
+        <p class="text-brand-muted text-sm leading-relaxed mb-4">
+          Evidence-based content for fitness, nutrition, peptides, skincare, and human optimization.
+        </p>
+        <a href="/newsletter" class="btn-primary text-sm px-4 py-2">
+          Subscribe Free
+        </a>
+      </div>
+
+      <!-- Categories -->
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Topics</h4>
+        <ul class="space-y-2">
+          {categories.map(cat => (
+            <li>
+              <a href={cat.href} class="text-brand-muted hover:text-brand-accent text-sm transition-colors">
+                {cat.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Legal + Links -->
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Company</h4>
+        <ul class="space-y-2">
+          <li><a href="/about" class="text-brand-muted hover:text-brand-accent text-sm transition-colors">About</a></li>
+          <li><a href="/resources" class="text-brand-muted hover:text-brand-accent text-sm transition-colors">Resources</a></li>
+          <li><a href="/newsletter" class="text-brand-muted hover:text-brand-accent text-sm transition-colors">Newsletter</a></li>
+          <li><a href="/privacy-policy" class="text-brand-muted hover:text-brand-accent text-sm transition-colors">Privacy Policy</a></li>
+          <li><a href="/terms-of-service" class="text-brand-muted hover:text-brand-accent text-sm transition-colors">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-brand-border mt-10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-brand-muted text-xs">
+        © {new Date().getFullYear()} OPX. All rights reserved.
+      </p>
+      <p class="text-brand-muted text-xs text-center sm:text-right max-w-md">
+        Content is for informational purposes only. Not medical advice. Always consult a qualified healthcare provider.
+      </p>
+    </div>
+  </div>
+</footer>

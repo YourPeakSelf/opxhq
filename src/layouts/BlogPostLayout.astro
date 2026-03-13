@@ -1,0 +1,95 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import CategoryBadge from '../components/CategoryBadge.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  heroImage?: string;
+  category: string;
+  author?: string;
+  readTime?: string;
+}
+
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  heroImage,
+  category,
+  author = 'OPX Editorial',
+  readTime = '5 min read',
+} = Astro.props;
+
+const formattedDate = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={title} description={description} image={heroImage} article={true}>
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Article Header -->
+    <header class="mb-10">
+      <div class="mb-4">
+        <CategoryBadge category={category} />
+      </div>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-6">
+        {title}
+      </h1>
+      <p class="text-brand-muted text-lg mb-6">{description}</p>
+      <div class="flex items-center gap-4 text-brand-muted text-sm border-t border-brand-border pt-6">
+        <span class="font-medium text-brand-text">{author}</span>
+        <span>·</span>
+        <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+        {updatedDate && (
+          <>
+            <span>·</span>
+            <span>Updated {updatedDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+          </>
+        )}
+        <span>·</span>
+        <span>{readTime}</span>
+      </div>
+    </header>
+
+    <!-- Hero Image -->
+    {heroImage && (
+      <div class="mb-10 rounded-xl overflow-hidden aspect-video">
+        <img
+          src={heroImage}
+          alt={title}
+          class="w-full h-full object-cover"
+          loading="eager"
+        />
+      </div>
+    )}
+
+    <!-- Medical Disclaimer Banner -->
+    <div class="bg-yellow-900/20 border border-yellow-600/30 rounded-lg p-4 mb-10 text-sm text-yellow-200/80">
+      <strong class="text-yellow-400">⚕️ Medical Disclaimer:</strong> This content is for informational and educational purposes only. Not medical advice. Consult a healthcare professional before starting any supplement, peptide, or training protocol.
+    </div>
+
+    <!-- Article Content -->
+    <div class="prose prose-invert prose-lg max-w-none
+      prose-headings:text-white prose-headings:font-bold
+      prose-p:text-brand-text prose-p:leading-relaxed
+      prose-a:text-brand-accent prose-a:no-underline hover:prose-a:underline
+      prose-strong:text-white
+      prose-code:text-brand-accent prose-code:bg-brand-surface prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
+      prose-blockquote:border-brand-accent prose-blockquote:text-brand-muted
+      prose-hr:border-brand-border
+      prose-li:text-brand-text">
+      <slot />
+    </div>
+
+    <!-- Back to Blog -->
+    <div class="mt-16 pt-8 border-t border-brand-border">
+      <a href="/blog" class="btn-outline">← Back to Articles</a>
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+
+const articles = [
+  {
+    title: 'The Complete Skincare Stack That Actually Works',
+    description: 'A no-nonsense, evidence-based skincare routine — morning, evening, and the actives worth spending money on.',
+    pubDate: new Date('2026-03-11'),
+    slug: 'male-skincare-stack',
+    category: 'skincare-looksmaxing',
+    readTime: '7 min read',
+  },
+];
+---
+
+<BaseLayout
+  title="Skincare & Looksmaxing"
+  description="Evidence-based skincare, aesthetics, and appearance optimization for both men and women."
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-4">
+      <a href="/blog" class="text-brand-muted text-sm hover:text-brand-accent transition-colors">← All Articles</a>
+    </div>
+    <div class="flex items-center gap-3 mb-4">
+      <span class="text-4xl">✨</span>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-pink-400">Skincare & Looksmaxing</h1>
+    </div>
+    <p class="text-brand-muted text-lg mb-10">Evidence-based aesthetics — routines, actives, and protocols that deliver results.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {articles.map(article => <ArticleCard {...article} />)}
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Free Newsletter — OPX Weekly"
+  description="Join the OPX Weekly newsletter. Evidence-based fitness, nutrition, peptides, and optimization — delivered every week."
+>
+  <div class="min-h-screen flex flex-col items-center justify-center px-4 py-20">
+
+    <!-- Gradient bg decoration -->
+    <div class="absolute inset-0 bg-gradient-to-b from-brand-accent/3 via-transparent to-transparent pointer-events-none" />
+
+    <div class="relative max-w-2xl w-full text-center">
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 bg-brand-accent/10 border border-brand-accent/20 rounded-full px-4 py-1.5 text-brand-accent text-xs font-semibold uppercase tracking-wider mb-8">
+        <span class="w-1.5 h-1.5 bg-brand-accent rounded-full" />
+        Free Weekly Newsletter
+      </div>
+
+      <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-6">
+        The <span class="text-gradient">OPX Weekly</span>
+      </h1>
+
+      <p class="text-brand-muted text-lg md:text-xl leading-relaxed mb-4 max-w-xl mx-auto">
+        Every week: the best of fitness, nutrition, peptides, skincare, and optimization. Curated, evidence-based, and actually useful.
+      </p>
+
+      <!-- What you get -->
+      <div class="flex flex-wrap justify-center gap-4 mb-10 text-sm">
+        {[
+          '✅ Weekly deep-dives',
+          '✅ No spam, ever',
+          '✅ Unsubscribe anytime',
+          '✅ 100% free',
+        ].map(item => (
+          <span class="text-brand-muted">{item}</span>
+        ))}
+      </div>
+
+      <!-- Signup Form -->
+      <div class="card p-8 mb-8">
+        <form class="flex flex-col sm:flex-row gap-3" id="nl-form">
+          <input
+            type="email"
+            name="email"
+            placeholder="your@email.com"
+            required
+            class="input flex-grow text-base"
+          />
+          <button type="submit" class="btn-primary px-8 py-3 text-base whitespace-nowrap">
+            Subscribe Free →
+          </button>
+        </form>
+        <p class="text-brand-muted text-xs mt-4">
+          Join readers who want the real signal in a world full of wellness noise.
+        </p>
+      </div>
+
+      <!-- What's inside -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+        {[
+          { icon: '🔬', title: 'Research Roundup', desc: 'New studies broken down in plain English' },
+          { icon: '📋', title: 'Protocol of the Week', desc: 'One actionable thing you can implement immediately' },
+          { icon: '🎯', title: 'What\'s Worth It', desc: 'Honest takes on trending supplements and tools' },
+        ].map(item => (
+          <div class="card p-5">
+            <div class="text-2xl mb-2">{item.icon}</div>
+            <h3 class="font-bold text-white text-sm mb-1">{item.title}</h3>
+            <p class="text-brand-muted text-xs leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('nl-form');
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = (form as HTMLFormElement).querySelector<HTMLInputElement>('[name="email"]')?.value;
+      alert(`You're in! We'll add ${email} shortly. (Beehiiv integration coming soon)`);
+      (form as HTMLFormElement).reset();
+    });
+  </script>
+</BaseLayout>

@@ -1,0 +1,104 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import MedicalDisclaimer from '../components/MedicalDisclaimer.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  article?: boolean;
+  canonicalURL?: string;
+}
+
+const {
+  title,
+  description = 'OPX — Your source for evidence-based fitness, nutrition, peptides, skincare, and human optimization.',
+  image = '/og-default.jpg',
+  article = false,
+  canonicalURL = Astro.url.href,
+} = Astro.props;
+
+const siteName = 'OPX';
+const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    <meta name="author" content="OPX" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta property="og:site_name" content={siteName} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.site)} />
+    <meta name="twitter:site" content="@opxhq" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- Schema.org -->
+    {article && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "publisher": {
+          "@type": "Organization",
+          "name": "OPX",
+          "url": "https://opxhq.com"
+        }
+      })} />
+    )}
+
+    {!article && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "OPX",
+        "url": "https://opxhq.com",
+        "description": description,
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://opxhq.com/blog?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      })} />
+    )}
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Navbar />
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <MedicalDisclaimer />
+    <Footer />
+  </body>
+</html>

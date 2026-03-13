@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const resources = [
+  {
+    category: 'Training Equipment',
+    icon: '🏋️',
+    items: [
+      {
+        name: 'Adjustable Dumbbells',
+        desc: 'Space-efficient and versatile for home training. The best bang-for-buck home gym investment.',
+        tag: 'Essential',
+        tagColor: 'text-green-400 bg-green-950/50 border-green-800/50',
+        affiliate: '#', // Replace with affiliate link
+      },
+      {
+        name: 'Resistance Bands',
+        desc: 'Underrated tool for warm-ups, accessory work, and travel training.',
+        tag: 'Recommended',
+        tagColor: 'text-blue-400 bg-blue-950/50 border-blue-800/50',
+        affiliate: '#',
+      },
+    ],
+  },
+  {
+    category: 'Supplements',
+    icon: '🧬',
+    items: [
+      {
+        name: 'Creatine Monohydrate',
+        desc: 'The most researched supplement in existence. Take 3–5g daily. Generic is fine — don\'t overpay for fancy forms.',
+        tag: 'Essential',
+        tagColor: 'text-green-400 bg-green-950/50 border-green-800/50',
+        affiliate: '#',
+      },
+      {
+        name: 'Vitamin D3 + K2',
+        desc: 'Most people are deficient. Critical for hormones, immunity, and bone health. Stack with K2 for absorption.',
+        tag: 'Essential',
+        tagColor: 'text-green-400 bg-green-950/50 border-green-800/50',
+        affiliate: '#',
+      },
+      {
+        name: 'Magnesium Glycinate',
+        desc: 'Sleep quality, muscle recovery, stress response. The most bioavailable form. Take before bed.',
+        tag: 'Recommended',
+        tagColor: 'text-blue-400 bg-blue-950/50 border-blue-800/50',
+        affiliate: '#',
+      },
+      {
+        name: 'Omega-3 Fish Oil',
+        desc: 'Anti-inflammatory, cardiovascular health, cognitive function. Get one that\'s been tested for heavy metals.',
+        tag: 'Recommended',
+        tagColor: 'text-blue-400 bg-blue-950/50 border-blue-800/50',
+        affiliate: '#',
+      },
+    ],
+  },
+  {
+    category: 'Skincare',
+    icon: '✨',
+    items: [
+      {
+        name: 'Tretinoin (Rx)',
+        desc: 'The gold standard retinoid. Nothing else comes close for anti-aging, acne, and skin texture. Needs a prescription.',
+        tag: 'Gold Standard',
+        tagColor: 'text-yellow-400 bg-yellow-950/50 border-yellow-800/50',
+        affiliate: '#',
+      },
+      {
+        name: 'SPF 50+ Sunscreen',
+        desc: 'The single most important skincare product. UV damage is the #1 driver of skin aging. Use it daily.',
+        tag: 'Essential',
+        tagColor: 'text-green-400 bg-green-950/50 border-green-800/50',
+        affiliate: '#',
+      },
+      {
+        name: 'Niacinamide Serum',
+        desc: 'Reduces pore appearance, controls oil, brightens — and plays well with everything else in your routine.',
+        tag: 'Recommended',
+        tagColor: 'text-blue-400 bg-blue-950/50 border-blue-800/50',
+        affiliate: '#',
+      },
+    ],
+  },
+  {
+    category: 'Biohacking Tools',
+    icon: '⚡',
+    items: [
+      {
+        name: 'Oura Ring / WHOOP',
+        desc: 'HRV and sleep tracking that actually changes how you train and recover. Worth it if you\'ll use the data.',
+        tag: 'Optional',
+        tagColor: 'text-brand-muted bg-brand-surface border-brand-border',
+        affiliate: '#',
+      },
+      {
+        name: 'Red Light Therapy Device',
+        desc: 'Emerging evidence for muscle recovery, skin health, and circadian rhythm support. Quality matters — don\'t go cheap.',
+        tag: 'Optional',
+        tagColor: 'text-brand-muted bg-brand-surface border-brand-border',
+        affiliate: '#',
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Resources"
+  description="Curated tools, supplements, and products that OPX actually recommends — with honest context for each."
+>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+    <!-- Header -->
+    <div class="mb-12">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Resources</h1>
+      <p class="text-brand-muted text-lg max-w-2xl">
+        Tools, supplements, and products we actually use and recommend. Everything here comes with honest context — including what we'd skip.
+      </p>
+    </div>
+
+    <!-- Affiliate disclosure -->
+    <div class="bg-brand-surface border border-brand-border rounded-xl p-4 mb-12 flex gap-3">
+      <span class="text-xl">💰</span>
+      <p class="text-brand-muted text-sm">
+        <strong class="text-brand-text">Affiliate Disclosure:</strong> Some links below are affiliate links — we may earn a commission at no extra cost to you.
+        Our recommendations are based on genuine merit. We don't promote anything we wouldn't use ourselves.
+      </p>
+    </div>
+
+    <!-- Resource Sections -->
+    {resources.map(section => (
+      <section class="mb-12">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-3xl">{section.icon}</span>
+          <h2 class="text-2xl font-bold text-white">{section.category}</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {section.items.map(item => (
+            <div class="card p-6 hover:border-brand-accent/40 transition-colors">
+              <div class="flex items-start justify-between gap-3 mb-3">
+                <h3 class="font-bold text-white">{item.name}</h3>
+                <span class={`badge border flex-shrink-0 ${item.tagColor}`}>{item.tag}</span>
+              </div>
+              <p class="text-brand-muted text-sm leading-relaxed mb-4">{item.desc}</p>
+              <a
+                href={item.affiliate}
+                class="text-brand-accent text-sm font-semibold hover:underline"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+              >
+                View Product →
+              </a>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+
+  </div>
+</BaseLayout>

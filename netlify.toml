@@ -1,0 +1,60 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+  from = "/blog/workouts"
+  to = "/blog/workouts-training"
+  status = 301
+
+[[redirects]]
+  from = "/blog/peptides"
+  to = "/blog/peptides-supplements"
+  status = 301
+
+[[redirects]]
+  from = "/blog/skincare"
+  to = "/blog/skincare-looksmaxing"
+  status = 301
+
+[[redirects]]
+  from = "/blog/nutrition"
+  to = "/blog/diet-nutrition"
+  status = 301
+
+[[redirects]]
+  from = "/blog/biohacking"
+  to = "/blog/biohacking-longevity"
+  status = 301
+
+[[redirects]]
+  from = "/blog/mindset"
+  to = "/blog/mental-health-mindset"
+  status = 301

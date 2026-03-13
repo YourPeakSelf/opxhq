@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+
+const articles = [
+  {
+    title: 'The Optimal Morning Routine for Body Composition',
+    description: 'Stack your morning habits to prime fat burning, maximize muscle protein synthesis, and set your hormones up for the day.',
+    pubDate: new Date('2026-03-12'),
+    slug: 'optimal-morning-routine-body-composition',
+    category: 'workouts-training',
+    readTime: '8 min read',
+  },
+  {
+    title: 'Progressive Overload: The Only Principle That Matters',
+    description: 'The single most important concept in strength training, explained simply — with a practical framework to apply it every session.',
+    pubDate: new Date('2026-03-05'),
+    slug: 'progressive-overload-guide',
+    category: 'workouts-training',
+    readTime: '7 min read',
+  },
+];
+---
+
+<BaseLayout
+  title="Workouts & Training"
+  description="Evidence-based workout programs, training techniques, and performance optimization."
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-4">
+      <a href="/blog" class="text-brand-muted text-sm hover:text-brand-accent transition-colors">← All Articles</a>
+    </div>
+    <div class="flex items-center gap-3 mb-4">
+      <span class="text-4xl">🏋️</span>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-red-400">Workouts & Training</h1>
+    </div>
+    <p class="text-brand-muted text-lg mb-10">Programs, technique, and performance science — no bro-science.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {articles.map(article => <ArticleCard {...article} />)}
+    </div>
+  </div>
+</BaseLayout>

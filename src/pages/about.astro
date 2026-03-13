@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+---
+
+<BaseLayout
+  title="About OPX"
+  description="OPX is an evidence-based content hub for fitness, nutrition, peptides, skincare, and human optimization."
+>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+    <!-- Header -->
+    <div class="mb-12">
+      <div class="w-16 h-16 bg-brand-accent rounded-xl flex items-center justify-center mb-6">
+        <span class="text-brand-bg font-black text-xl">OPX</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">About OPX</h1>
+      <p class="text-brand-muted text-xl leading-relaxed">
+        We're building the most honest, evidence-based wellness resource on the internet.
+      </p>
+    </div>
+
+    <!-- Mission -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-4">Our Mission</h2>
+      <div class="prose prose-invert max-w-none text-brand-muted leading-relaxed space-y-4">
+        <p>
+          OPX exists because the wellness industry is full of noise. Influencers pushing supplements they're paid to promote. Bro-science passed off as gospel. Pseudoscience packaged in premium aesthetics.
+        </p>
+        <p>
+          We're different. Every article on this site is written to a standard: <strong class="text-white">what does the evidence actually say?</strong> We follow the research, not the trends. We'll tell you when something doesn't work, even when it's popular. We'll recommend the unglamorous basics over the expensive hacks.
+        </p>
+        <p>
+          Our goal is simple: help you make better decisions about your body and mind — whether that's your training, what you eat, the supplements you take, how you look, or how you think.
+        </p>
+      </div>
+    </section>
+
+    <!-- What We Cover -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-6">What We Cover</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {[
+          { icon: '🏋️', topic: 'Workouts & Training', desc: 'Programs, technique, recovery, and performance' },
+          { icon: '🧬', topic: 'Peptides & Supplements', desc: 'What the research says — no hype' },
+          { icon: '✨', topic: 'Skincare & Looksmaxing', desc: 'Evidence-based aesthetics for everyone' },
+          { icon: '🥗', topic: 'Diet & Nutrition', desc: 'Fuelling performance and longevity' },
+          { icon: '⚡', topic: 'Biohacking & Longevity', desc: 'Living longer and performing better' },
+          { icon: '🧠', topic: 'Mental Health & Mindset', desc: 'The foundation everything else is built on' },
+        ].map(item => (
+          <div class="card p-5">
+            <div class="text-2xl mb-2">{item.icon}</div>
+            <h3 class="font-bold text-white text-sm mb-1">{item.topic}</h3>
+            <p class="text-brand-muted text-xs">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-4">Important Disclaimers</h2>
+      <div class="bg-yellow-900/20 border border-yellow-600/30 rounded-xl p-6 space-y-4">
+        <div>
+          <h3 class="font-bold text-yellow-400 mb-2">⚕️ Medical Disclaimer</h3>
+          <p class="text-yellow-200/80 text-sm leading-relaxed">
+            All content published on OPX is for <strong>informational and educational purposes only</strong>.
+            Nothing on this website constitutes medical advice, diagnosis, or treatment.
+            Always consult a qualified healthcare professional before starting any new supplement, peptide, training protocol, skincare treatment, or dietary change.
+            Individual results vary. What works for one person may not work for another.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-bold text-yellow-400 mb-2">💰 Affiliate Disclosure</h3>
+          <p class="text-yellow-200/80 text-sm leading-relaxed">
+            Some links on this site may be affiliate links. This means we may earn a commission if you purchase through our links, at no extra cost to you.
+            We only recommend products we genuinely believe in. Our editorial opinions are never influenced by affiliate relationships.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-bold text-yellow-400 mb-2">🔬 Research Standards</h3>
+          <p class="text-yellow-200/80 text-sm leading-relaxed">
+            We strive to cite primary sources and peer-reviewed research. Where evidence is limited or mixed, we say so explicitly.
+            The wellness space evolves rapidly — recommendations may change as new research emerges.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <NewsletterSignup variant="inline" />
+  </div>
+</BaseLayout>

@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CategoryBadge from '../../components/CategoryBadge.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+const categories = [
+  { slug: 'workouts-training', label: 'Workouts & Training', icon: '🏋️' },
+  { slug: 'peptides-supplements', label: 'Peptides & Supplements', icon: '🧬' },
+  { slug: 'skincare-looksmaxing', label: 'Skincare & Looksmaxing', icon: '✨' },
+  { slug: 'diet-nutrition', label: 'Diet & Nutrition', icon: '🥗' },
+  { slug: 'biohacking-longevity', label: 'Biohacking & Longevity', icon: '⚡' },
+  { slug: 'mental-health-mindset', label: 'Mental Health & Mindset', icon: '🧠' },
+];
+
+// Sample articles — will be replaced by content collection queries
+const articles = [
+  {
+    title: 'BPC-157: The Complete Guide to This Healing Peptide',
+    description: 'Everything you need to know about BPC-157 — mechanism of action, dosing protocols, injury recovery applications, and what the research actually says.',
+    pubDate: new Date('2026-03-13'),
+    slug: 'bpc-157-complete-guide',
+    category: 'peptides-supplements',
+    readTime: '12 min read',
+  },
+  {
+    title: 'The Optimal Morning Routine for Body Composition',
+    description: 'Stack your morning habits to prime fat burning, maximize muscle protein synthesis, and set your hormones up for the day.',
+    pubDate: new Date('2026-03-12'),
+    slug: 'optimal-morning-routine-body-composition',
+    category: 'workouts-training',
+    readTime: '8 min read',
+  },
+  {
+    title: 'The Male Skincare Stack That Actually Works',
+    description: 'A no-nonsense, evidence-based skincare routine — morning, evening, and the actives worth spending money on.',
+    pubDate: new Date('2026-03-11'),
+    slug: 'male-skincare-stack',
+    category: 'skincare-looksmaxing',
+    readTime: '7 min read',
+  },
+  {
+    title: 'Creatine: The Most Researched Supplement Ever',
+    description: 'Why creatine is the one supplement almost everyone should take — and the correct way to dose it.',
+    pubDate: new Date('2026-03-10'),
+    slug: 'creatine-complete-guide',
+    category: 'peptides-supplements',
+    readTime: '6 min read',
+  },
+  {
+    title: 'Protein: How Much Do You Actually Need?',
+    description: 'Cutting through the bro-science on protein intake. What the research says about optimal amounts for muscle gain and fat loss.',
+    pubDate: new Date('2026-03-09'),
+    slug: 'how-much-protein-do-you-need',
+    category: 'diet-nutrition',
+    readTime: '8 min read',
+  },
+  {
+    title: 'Cold Plunge vs. Sauna: What the Science Says',
+    description: 'Both have exploded in popularity. Here\'s what the actual research shows about benefits, timing, and how to stack them.',
+    pubDate: new Date('2026-03-08'),
+    slug: 'cold-plunge-vs-sauna',
+    category: 'biohacking-longevity',
+    readTime: '9 min read',
+  },
+];
+---
+
+<BaseLayout
+  title="Articles"
+  description="Evidence-based articles on fitness, nutrition, peptides, skincare, biohacking, and mental health. All topics covered."
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Header -->
+    <div class="mb-10">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Articles</h1>
+      <p class="text-brand-muted text-lg">Evidence-based content on everything that moves the needle.</p>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="flex flex-wrap gap-2 mb-10 pb-8 border-b border-brand-border">
+      <a
+        href="/blog"
+        class="badge border border-brand-accent bg-brand-accent/10 text-brand-accent"
+      >
+        All Topics
+      </a>
+      {categories.map(cat => (
+        <a
+          href={`/blog/${cat.slug}`}
+          class="badge border border-brand-border text-brand-muted hover:border-brand-accent hover:text-brand-accent transition-colors"
+        >
+          {cat.icon} {cat.label}
+        </a>
+      ))}
+    </div>
+
+    <!-- Article Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {articles.map(article => (
+        <ArticleCard {...article} />
+      ))}
+    </div>
+  </div>
+</BaseLayout>
