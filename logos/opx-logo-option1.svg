@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d0d0d"/>
+      <stop offset="100%" style="stop-color:#1a1a1a"/>
+    </linearGradient>
+    <clipPath id="circle1">
+      <circle cx="200" cy="200" r="200"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <circle cx="200" cy="200" r="200" fill="url(#bg1)"/>
+
+  <!-- Cyan accent arc -->
+  <circle cx="200" cy="200" r="188" fill="none" stroke="#00e5ff" stroke-width="6"
+    stroke-dasharray="900 1000" stroke-dashoffset="-60"
+    stroke-linecap="round"/>
+
+  <!-- OPX text -->
+  <text x="200" y="216"
+    font-family="Inter, Arial Black, sans-serif"
+    font-weight="900"
+    font-size="148"
+    fill="#ffffff"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    letter-spacing="-4">OPX</text>
+
+  <!-- Cyan dot accent -->
+  <circle cx="200" cy="306" r="5" fill="#00e5ff"/>
+</svg>
