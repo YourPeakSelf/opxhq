@@ -10,6 +10,9 @@ export interface Props {
   image?: string;
   article?: boolean;
   canonicalURL?: string;
+  pubDate?: string;
+  updatedDate?: string;
+  author?: string;
 }
 
 const {
@@ -18,6 +21,9 @@ const {
   image = '/og-default.jpg',
   article = false,
   canonicalURL = Astro.url.href,
+  pubDate,
+  updatedDate,
+  author = 'OPX Editorial',
 } = Astro.props;
 
 const siteName = 'OPX';
@@ -65,11 +71,29 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
       <script type="application/ld+json" set:html={JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Article",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": canonicalURL
+        },
+        "headline": title,
+        "description": description,
+        "image": new URL(image, 'https://opxhq.com').toString(),
+        "author": {
+          "@type": "Person",
+          "name": author,
+          "url": "https://opxhq.com/about"
+        },
         "publisher": {
           "@type": "Organization",
           "name": "OPX",
-          "url": "https://opxhq.com"
-        }
+          "url": "https://opxhq.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://opxhq.com/favicon.svg"
+          }
+        },
+        "datePublished": pubDate || new Date().toISOString(),
+        "dateModified": updatedDate || pubDate || new Date().toISOString()
       })} />
     )}
 
