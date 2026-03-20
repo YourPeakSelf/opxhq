@@ -104,22 +104,12 @@
   <circle cx="620" cy="140" r="5" fill="#00e5ff" opacity="0.9" filter="url(#cyanGlow)"/>
 
   <!-- ── OPX WORDMARK ───────────────────────────────────────── -->
-  <!-- ── OPX LOGO UNIT (right side, stacked tight) ───────── -->
-  <!-- Small chevron mark above OPX -->
-  <polyline points="1115,215 1150,178 1185,215"
-    fill="none" stroke="#00e5ff" stroke-width="5"
-    stroke-linejoin="round" stroke-linecap="round"
-    filter="url(#cyanGlow)"/>
-  <polyline points="1128,215 1150,193 1172,215"
-    fill="none" stroke="#00e5ff" stroke-width="2.5" opacity="0.3"
-    stroke-linejoin="round" stroke-linecap="round"/>
-  <circle cx="1150" cy="178" r="4" fill="#00e5ff" opacity="0.9" filter="url(#cyanGlow)"/>
-
+  <!-- ── OPX LOGO UNIT (right side, tight above tagline) ──── -->
   <!-- OPX wordmark -->
-  <text x="1150" y="310"
+  <text x="1150" y="340"
     font-family="DejaVu Sans"
     font-weight="bold"
-    font-size="155"
+    font-size="150"
     fill="#ffffff"
     text-anchor="middle"
     dominant-baseline="middle"
@@ -127,7 +117,7 @@
     filter="url(#textShadow)">OPX</text>
 
   <!-- ── TAGLINE ────────────────────────────────────────────── -->
-  <text x="1150" y="405"
+  <text x="1150" y="428"
     font-family="DejaVu Sans"
     font-weight="bold"
     font-size="18"
