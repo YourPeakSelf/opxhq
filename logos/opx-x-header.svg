@@ -104,38 +104,37 @@
   <circle cx="620" cy="140" r="5" fill="#00e5ff" opacity="0.9" filter="url(#cyanGlow)"/>
 
   <!-- ── OPX WORDMARK ───────────────────────────────────────── -->
-  <!-- ── OPX LOGO MARK (above tagline, right side) ────────── -->
-  <!-- Chevron icon -->
-  <polyline points="870,155 910,110 950,155"
-    fill="none" stroke="#00e5ff" stroke-width="6"
+  <!-- ── OPX LOGO UNIT (right side, stacked tight) ───────── -->
+  <!-- Small chevron mark above OPX -->
+  <polyline points="1115,215 1150,178 1185,215"
+    fill="none" stroke="#00e5ff" stroke-width="5"
     stroke-linejoin="round" stroke-linecap="round"
     filter="url(#cyanGlow)"/>
-  <!-- Echo chevron -->
-  <polyline points="882,155 910,128 938,155"
-    fill="none" stroke="#00e5ff" stroke-width="3" opacity="0.3"
+  <polyline points="1128,215 1150,193 1172,215"
+    fill="none" stroke="#00e5ff" stroke-width="2.5" opacity="0.3"
     stroke-linejoin="round" stroke-linecap="round"/>
-  <!-- Peak dot -->
-  <circle cx="910" cy="110" r="4" fill="#00e5ff" opacity="0.9" filter="url(#cyanGlow)"/>
+  <circle cx="1150" cy="178" r="4" fill="#00e5ff" opacity="0.9" filter="url(#cyanGlow)"/>
 
-  <text x="850" y="262"
+  <!-- OPX wordmark -->
+  <text x="1150" y="310"
     font-family="DejaVu Sans"
     font-weight="bold"
-    font-size="200"
+    font-size="155"
     fill="#ffffff"
-    text-anchor="start"
+    text-anchor="middle"
     dominant-baseline="middle"
-    letter-spacing="-6"
+    letter-spacing="-4"
     filter="url(#textShadow)">OPX</text>
 
-  <!-- ── TAGLINE (below OPX, clear of letterforms) ─────────── -->
-  <text x="856" y="388"
-    font-family="Liberation Sans, Open Sans, DejaVu Sans, sans-serif"
-    font-weight="500"
-    font-size="20"
+  <!-- ── TAGLINE ────────────────────────────────────────────── -->
+  <text x="1150" y="405"
+    font-family="DejaVu Sans"
+    font-weight="bold"
+    font-size="18"
     fill="#00e5ff"
-    text-anchor="start"
+    text-anchor="middle"
     dominant-baseline="middle"
-    letter-spacing="5">OPTIMIZE. PERFORM. EXCEL.</text>
+    letter-spacing="4">OPTIMIZE. PERFORM. EXCEL.</text>
 
   <!-- ── TOP ACCENT LINE ───────────────────────────────────── -->
   <line x1="0" y1="3" x2="1500" y2="3" stroke="#00e5ff" stroke-width="3" opacity="0.6"/>
