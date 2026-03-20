@@ -98,8 +98,21 @@
   <circle cx="620" cy="140" r="5" fill="#00e5ff" opacity="0.9" filter="url(#cyanGlow)"/>
 
   <!-- ── OPX WORDMARK ───────────────────────────────────────── -->
+  <!-- ── OPX LOGO MARK (above tagline, right side) ────────── -->
+  <!-- Chevron icon -->
+  <polyline points="870,155 910,110 950,155"
+    fill="none" stroke="#00e5ff" stroke-width="6"
+    stroke-linejoin="round" stroke-linecap="round"
+    filter="url(#cyanGlow)"/>
+  <!-- Echo chevron -->
+  <polyline points="882,155 910,128 938,155"
+    fill="none" stroke="#00e5ff" stroke-width="3" opacity="0.3"
+    stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Peak dot -->
+  <circle cx="910" cy="110" r="4" fill="#00e5ff" opacity="0.9" filter="url(#cyanGlow)"/>
+
   <text x="850" y="262"
-    font-family="Inter, Arial Black, sans-serif"
+    font-family="Liberation Sans, Open Sans, DejaVu Sans, sans-serif"
     font-weight="900"
     font-size="200"
     fill="#ffffff"
@@ -110,7 +123,7 @@
 
   <!-- ── TAGLINE (below OPX, clear of letterforms) ─────────── -->
   <text x="856" y="388"
-    font-family="Inter, Arial, sans-serif"
+    font-family="Liberation Sans, Open Sans, DejaVu Sans, sans-serif"
     font-weight="500"
     font-size="20"
     fill="#00e5ff"
@@ -126,23 +139,23 @@
 
   <!-- ── PILL TAGS (bottom left) ───────────────────────────── -->
   <rect x="40" y="434" width="140" height="32" rx="16" fill="rgba(0,229,255,0.08)" stroke="#00e5ff" stroke-width="1" stroke-opacity="0.4"/>
-  <text x="110" y="450" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="13" fill="#00e5ff" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">PEPTIDES</text>
+  <text x="110" y="450" font-family="Liberation Sans, Open Sans, DejaVu Sans, sans-serif" font-weight="600" font-size="13" fill="#00e5ff" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">PEPTIDES</text>
 
   <rect x="194" y="434" width="156" height="32" rx="16" fill="rgba(0,229,255,0.08)" stroke="#00e5ff" stroke-width="1" stroke-opacity="0.4"/>
-  <text x="272" y="450" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="13" fill="#00e5ff" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">LOOKSMAXXING</text>
+  <text x="272" y="450" font-family="Liberation Sans, Open Sans, DejaVu Sans, sans-serif" font-weight="600" font-size="13" fill="#00e5ff" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">LOOKSMAXXING</text>
 
   <rect x="364" y="434" width="140" height="32" rx="16" fill="rgba(0,229,255,0.08)" stroke="#00e5ff" stroke-width="1" stroke-opacity="0.4"/>
-  <text x="434" y="450" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="13" fill="#00e5ff" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">BIOHACKING</text>
+  <text x="434" y="450" font-family="Liberation Sans, Open Sans, DejaVu Sans, sans-serif" font-weight="600" font-size="13" fill="#00e5ff" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">BIOHACKING</text>
 
   <rect x="518" y="434" width="130" height="32" rx="16" fill="rgba(0,229,255,0.08)" stroke="#00e5ff" stroke-width="1" stroke-opacity="0.4"/>
-  <text x="583" y="450" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="13" fill="#00e5ff" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">NUTRITION</text>
+  <text x="583" y="450" font-family="Liberation Sans, Open Sans, DejaVu Sans, sans-serif" font-weight="600" font-size="13" fill="#00e5ff" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">NUTRITION</text>
 
   <rect x="662" y="434" width="118" height="32" rx="16" fill="rgba(0,229,255,0.08)" stroke="#00e5ff" stroke-width="1" stroke-opacity="0.4"/>
-  <text x="721" y="450" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="13" fill="#00e5ff" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">FITNESS</text>
+  <text x="721" y="450" font-family="Liberation Sans, Open Sans, DejaVu Sans, sans-serif" font-weight="600" font-size="13" fill="#00e5ff" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">FITNESS</text>
 
   <!-- ── URL (bottom right) ────────────────────────────────── -->
   <text x="1460" y="455"
-    font-family="Inter, Arial, sans-serif"
+    font-family="Liberation Sans, Open Sans, DejaVu Sans, sans-serif"
     font-weight="400"
     font-size="16"
     fill="rgba(255,255,255,0.25)"
