@@ -40,9 +40,15 @@
       </feMerge>
     </filter>
 
-    <!-- Subtle drop shadow for OPX -->
-    <filter id="textShadow" x="-5%" y="-5%" width="110%" height="120%">
-      <feDropShadow dx="0" dy="0" stdDeviation="18" flood-color="#00e5ff" flood-opacity="0.25"/>
+    <!-- Glow for OPX wordmark -->
+    <filter id="textShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feFlood flood-color="#00e5ff" flood-opacity="0.3" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
 
   </defs>
@@ -112,8 +118,8 @@
   <circle cx="910" cy="110" r="4" fill="#00e5ff" opacity="0.9" filter="url(#cyanGlow)"/>
 
   <text x="850" y="262"
-    font-family="Liberation Sans, Open Sans, DejaVu Sans, sans-serif"
-    font-weight="900"
+    font-family="DejaVu Sans"
+    font-weight="bold"
     font-size="200"
     fill="#ffffff"
     text-anchor="start"
@@ -129,7 +135,7 @@
     fill="#00e5ff"
     text-anchor="start"
     dominant-baseline="middle"
-    letter-spacing="5">OPTIMIZE EVERYTHING</text>
+    letter-spacing="5">OPTIMIZE. PERFORM. EXCEL.</text>
 
   <!-- ── TOP ACCENT LINE ───────────────────────────────────── -->
   <line x1="0" y1="3" x2="1500" y2="3" stroke="#00e5ff" stroke-width="3" opacity="0.6"/>
