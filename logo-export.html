@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>OPX Logo Export</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      gap: 40px;
+      font-family: Inter, sans-serif;
+    }
+    h3 { color: #888; margin: 0 0 8px; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; }
+    .group { display: flex; flex-direction: column; align-items: center; }
+    canvas { border-radius: 50%; display: block; }
+    button {
+      margin-top: 12px;
+      background: #00e5ff;
+      color: #000;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+    button:hover { background: #00c8e0; }
+    .row { display: flex; gap: 60px; align-items: flex-start; }
+  </style>
+</head>
+<body>
+<div class="row">
+
+  <!-- OPTION 1: Bold Monogram -->
+  <div class="group">
+    <h3>Option 1 — Monogram</h3>
+    <canvas id="c1" width="400" height="400"></canvas>
+    <button onclick="save('c1','opx-logo-monogram.png')">Download PNG</button>
+  </div>
+
+  <!-- OPTION 2: Icon + Text -->
+  <div class="group">
+    <h3>Option 2 — Icon Mark</h3>
+    <canvas id="c2" width="400" height="400"></canvas>
+    <button onclick="save('c2','opx-logo-icon.png')">Download PNG</button>
+  </div>
+
+  <!-- OPTION 3: Minimal Wordmark -->
+  <div class="group">
+    <h3>Option 3 — Minimal</h3>
+    <canvas id="c3" width="400" height="400"></canvas>
+    <button onclick="save('c3','opx-logo-minimal.png')">Download PNG</button>
+  </div>
+
+</div>
+
+<script>
+function save(id, filename) {
+  const canvas = document.getElementById(id);
+  const link = document.createElement('a');
+  link.download = filename;
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+// Wait for font
+document.fonts.ready.then(() => {
+  drawOption1();
+  drawOption2();
+  drawOption3();
+});
+
+// ── OPTION 1: Bold Monogram on dark circle with cyan accent bar ──────────────
+function drawOption1() {
+  const c = document.getElementById('c1');
+  const ctx = c.getContext('2d');
+  const size = 400;
+
+  // Background circle
+  ctx.beginPath();
+  ctx.arc(size/2, size/2, size/2, 0, Math.PI * 2);
+  const bg = ctx.createLinearGradient(0, 0, size, size);
+  bg.addColorStop(0, '#0d0d0d');
+  bg.addColorStop(1, '#1a1a1a');
+  ctx.fillStyle = bg;
+  ctx.fill();
+
+  // Cyan accent arc (top-left quarter)
+  ctx.beginPath();
+  ctx.arc(size/2, size/2, size/2 - 12, -Math.PI * 0.95, -Math.PI * 0.05);
+  ctx.strokeStyle = '#00e5ff';
+  ctx.lineWidth = 6;
+  ctx.lineCap = 'round';
+  ctx.stroke();
+
+  // OPX text
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '900 148px Inter';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('OPX', size/2, size/2 + 6);
+
+  // Tagline dot underneath
+  ctx.beginPath();
+  ctx.arc(size/2, size/2 + 100, 5, 0, Math.PI * 2);
+  ctx.fillStyle = '#00e5ff';
+  ctx.fill();
+}
+
+// ── OPTION 2: Upward arrow/peak icon above OPX ───────────────────────────────
+function drawOption2() {
+  const c = document.getElementById('c2');
+  const ctx = c.getContext('2d');
+  const size = 400;
+
+  // Background
+  ctx.beginPath();
+  ctx.arc(size/2, size/2, size/2, 0, Math.PI * 2);
+  ctx.fillStyle = '#0a0a0a';
+  ctx.fill();
+
+  // Outer ring
+  ctx.beginPath();
+  ctx.arc(size/2, size/2, size/2 - 8, 0, Math.PI * 2);
+  ctx.strokeStyle = '#1e1e1e';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+
+  // Peak / chevron icon
+  const cx = size / 2;
+  const peakY = 118;
+  const peakW = 72;
+  const peakH = 48;
+
+  ctx.beginPath();
+  ctx.moveTo(cx - peakW, peakY + peakH);
+  ctx.lineTo(cx, peakY);
+  ctx.lineTo(cx + peakW, peakY + peakH);
+  ctx.strokeStyle = '#00e5ff';
+  ctx.lineWidth = 10;
+  ctx.lineJoin = 'round';
+  ctx.lineCap = 'round';
+  ctx.stroke();
+
+  // Thin second chevron (echo)
+  ctx.beginPath();
+  ctx.moveTo(cx - peakW * 0.55, peakY + peakH + 22);
+  ctx.lineTo(cx, peakY + peakH * 0.45 + 22);
+  ctx.lineTo(cx + peakW * 0.55, peakY + peakH + 22);
+  ctx.strokeStyle = 'rgba(0,229,255,0.25)';
+  ctx.lineWidth = 6;
+  ctx.stroke();
+
+  // OPX text
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '900 118px Inter';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('OPX', size/2, 268);
+
+  // Thin line separator
+  ctx.beginPath();
+  ctx.moveTo(size/2 - 48, 316);
+  ctx.lineTo(size/2 + 48, 316);
+  ctx.strokeStyle = '#00e5ff';
+  ctx.lineWidth = 2;
+  ctx.lineCap = 'round';
+  ctx.stroke();
+}
+
+// ── OPTION 3: Clean minimal — letter-spaced on pure black ────────────────────
+function drawOption3() {
+  const c = document.getElementById('c3');
+  const ctx = c.getContext('2d');
+  const size = 400;
+
+  // Background
+  ctx.beginPath();
+  ctx.arc(size/2, size/2, size/2, 0, Math.PI * 2);
+  ctx.fillStyle = '#000000';
+  ctx.fill();
+
+  // Subtle gradient overlay
+  const grad = ctx.createRadialGradient(size*0.35, size*0.35, 0, size/2, size/2, size/2);
+  grad.addColorStop(0, 'rgba(0,229,255,0.07)');
+  grad.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.beginPath();
+  ctx.arc(size/2, size/2, size/2, 0, Math.PI * 2);
+  ctx.fillStyle = grad;
+  ctx.fill();
+
+  // Top micro-label
+  ctx.fillStyle = '#00e5ff';
+  ctx.font = '700 18px Inter';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.letterSpacing = '6px';
+  ctx.fillText('OPTIMIZE', size/2, 148);
+
+  // OPX — large
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '900 164px Inter';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('OPX', size/2, 220);
+
+  // Bottom label
+  ctx.fillStyle = 'rgba(255,255,255,0.3)';
+  ctx.font = '500 16px Inter';
+  ctx.textAlign = 'center';
+  ctx.fillText('opxhq.com', size/2, 296);
+}
+</script>
+</body>
+</html>
